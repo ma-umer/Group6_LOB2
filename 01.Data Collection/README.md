@@ -7,7 +7,7 @@ The remaining criteria cannot be expressed in the query, so we check them with a
 1. the signal peptide has experimental evidence (ECO:0000269)
 2. the signal peptide is at least 14 residues long
 
-##Selection Criteria For the Negative Set of Proteins
+## Selection Criteria For the Negative Set of Proteins
 The URL for negative dataset selects the same common criteria as the positive, and in addition:
 * no signal peptide annotated at any evidence level (`NOT ft_signal:*`)
 * experimental subcellular location in cytosol (SL-0091), nucleus (SL-0191), mitochondrion (SL-0173), plastid (SL-0209), peroxisome (SL-0204) or cell membrane (SL-0039)
