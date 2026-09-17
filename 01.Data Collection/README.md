@@ -12,20 +12,31 @@ The URL for negative dataset selects the same common criteria as the positive, a
 * no signal peptide annotated at any evidence level (`NOT ft_signal:*`)
 * experimental subcellular location in cytosol (SL-0091), nucleus (SL-0191), mitochondrion (SL-0173), plastid (SL-0209), peroxisome (SL-0204) or cell membrane (SL-0039)
 
-## Positive Query (UniProtKB 2,972 results)
+## Positive Query 
+
+### UniProt Query For Positive Proteins
 ```text
  (fragment:false) AND (taxonomy_id:2759) AND (length:[40 TO *]) AND (reviewed:true) AND (ft_signal_exp:*)
 ```
-## Negative Query (UniProtKB 20,975 results)
-```
-(reviewed:true) AND (fragment:false) AND (taxonomy_id:2759) AND (length:[40 TO *]) AND (existence:1) NOT (ft_signal:*) OR (cc_scl_term_exp:SL-0191) OR (cc_scl_term_exp:SL-0204) OR (cc_scl_term_exp:SL-0039) OR (cc_scl_term_exp:SL-0091) OR (cc_scl_term_exp:SL-0209) OR (cc_scl_term_exp:SL-0173)	
-```
-### Positive query API URL:
-***Format:JSON, Compressed:No***
+***UniProtKB 2,972 results***
 
+### Positive query API URL:
 ```
 https://rest.uniprot.org/uniprotkb/search?format=json&query=%28%28fragment%3Afalse%29+AND+%28taxonomy_id%3A2759%29+AND+%28length%3A%5B40+TO+*%5D%29+AND+%28reviewed%3Atrue%29+AND+%28ft_signal_exp%3A*%29%29&size=500 #
 ```
+***Format:JSON, Compressed:No***
+
+
+
+## Negative Query 
+
+### UniProt Query For Negative Proteins
+```
+(reviewed:true) AND (fragment:false) AND (taxonomy_id:2759) AND (length:[40 TO *]) AND (existence:1) NOT (ft_signal:*) OR (cc_scl_term_exp:SL-0191) OR (cc_scl_term_exp:SL-0204) OR (cc_scl_term_exp:SL-0039) OR (cc_scl_term_exp:SL-0091) OR (cc_scl_term_exp:SL-0209) OR (cc_scl_term_exp:SL-0173)	
+```
+***UniProtKB 20,975 results***
+
+
 ### Negative query API URL: 
 ***Format:JSON, Compressed:No***
 
