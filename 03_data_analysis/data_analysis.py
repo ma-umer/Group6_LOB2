@@ -1,20 +1,3 @@
-#!/usr/bin/env python3
-"""
-Describe and visualize the positive (signal peptide) / negative datasets:
-  - SP length distribution (train vs bench)
-  - amino-acid composition of SPs vs SwissProt reference
-  - sequence motifs around the SP cleavage site (exported as TSV)
-  - taxonomic composition (kingdom + species)
-  - protein length distributions (train vs bench, positive vs negative)
-
-Plotting/analysis functions come from the original standalone scripts
-(comparison_aa, motif_logo, signal_peptide_graph, taxonomic_classification,
-proteinlenght); the layout (paths, load_dataset, main) follows data_analysis.py.
-
-Requires: pandas, numpy, matplotlib, seaborn
-    pip install pandas numpy matplotlib seaborn
-"""
-
 from pathlib import Path
 import numpy as np
 import pandas as pd
