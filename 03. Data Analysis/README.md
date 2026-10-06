@@ -29,4 +29,4 @@ The two datasets come from `02. Data Preparation`. Each one is described
 > **c-region** that contains the cleavage site.
 
 ## 1. Protein length
-![My Image](protein_length_comparison.png)
+![Protein Length Comparasion Plot](03. Data Analysis/plots/protein_length_comparison.png)
