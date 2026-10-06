@@ -43,3 +43,110 @@ The two datasets come from `02. Data Preparation`. Each one is described
 **Why it matters:** total length is different between the two groups, but our methods only look at the **start of the protein** (the first 90 amino acids), so this difference does not affect them.
 
 ---
+
+## 2. Signal-peptide length
+
+![SP length](plots/signal_peptide_graph.png)
+
+**What the plot shows:** how many amino acids long each signal peptide is.
+
+**What we see:**
+
+- Most SPs are **15–30 amino acids** long.
+- The **median is 22 amino acids** in both sets.
+- A few unusual SPs are longer (up to 83 in training and 64 in benchmark).
+- Training and benchmark have almost the same shape.
+
+**Why it matters:** this matches the expected SP length from the lectures (20–30 residues). Because SPs are short, it is enough to search only the **first 90 amino acids** of each protein.
+
+---
+
+## 3. Amino-acid composition: signal peptides vs SwissProt
+
+![Amino-acid composition](plots/comparative_aa_for_sp.png)
+
+**What the plot shows:** the percentage of each amino acid inside signal peptides (training in blue, benchmark in orange), compared with all proteins in SwissProt (green, the "normal" background). The amino acids are grouped by type: apolar, aromatic, polar and charged.
+
+**What we see:**
+
+| Amino acid | In SPs | In SwissProt | Meaning |
+|---|---|---|---|
+| **L** (leucine) | about 22% | about 9% | Much more common: L forms the **hydrophobic h-region** |
+| **A** (alanine) | about 14–15% | about 8% | More common: A is typical of the **cleavage site** |
+| **V, F, M** | higher | lower | Hydrophobic residues are enriched (M is high because every protein starts with M) |
+| **D, E, K, N** | about 1–2% | about 4–6% | Much rarer: **charged and polar** residues are avoided |
+
+**Why it matters:** SPs have a very clear "chemical fingerprint": **lots of hydrophobic residues, few charged ones**. This tells us that amino-acid composition and hydrophobicity are good features for a classifier such as the SVM.
+
+---
+
+## 4. Taxonomy: which organisms the proteins come from
+
+![Taxonomy training](plots/taxonomic_classification_training.png)
+![Taxonomy benchmark](plots/taxonomic_classification_benchmark.png)
+
+**What the plots show:** the left pie chart groups proteins by **kingdom**; the right pie chart shows the most common **species**.
+
+**What we see:**
+
+| Kingdom | Training | Benchmark |
+|---|---|---|
+| Metazoa (animals) | 55.5% | 55.4% |
+| Fungi | 25.9% | 24.6% |
+| Viridiplantae (plants) | 16.5% | 17.6% |
+| Other | 2.1% | 2.5% |
+
+- About **three quarters** of all proteins come from just five model organisms: human (*Homo sapiens*, about 27%), baker's yeast (*S. cerevisiae*, about 16%), *Arabidopsis thaliana* (about 13%), mouse (*Mus musculus*, about 12%) and fission yeast (*S. pombe*, about 6–7%).
+- Training and benchmark have almost the same proportions.
+
+**Why it matters:** the data are **biased toward well-studied organisms**, because these are the proteins with experimental evidence in UniProt. A model trained on them may work less well on rarely studied organisms. Also, most proteins with an SP come from animals (about 80% of positives), so we should keep this in mind when we interpret the results.
+
+---
+
+## 5. Sequence logos of the cleavage site
+
+![Logo training](plots/logo_training.png)
+![Logo benchmark](plots/logo_benchmark.png)
+
+**How we built it:** for every protein with an SP, we cut out the **15 amino acids around the cleavage site**: 13 before the cut (positions −13 to −1) and 2 after it (+1 and +2). These windows are saved in `motifs_training.*` and `motifs_benchmark.*`. Lining them up gives a sequence logo.
+
+**How to read a logo:**
+
+- Each column is one position. The dashed line is where the SP is cut.
+- **Big letters** = that amino acid appears very often at that position.
+- **Tall columns** = the position is very conserved (it carries a lot of information).
+
+**What we see:**
+
+- **Position −1:** a large **A** (alanine), with G and S below it.
+- **Position −3:** **A** and **V**.
+- Together these form the well-known **"A-x-A" motif**, the pattern recognised by the enzyme that cuts the SP.
+- **Positions −13 to −6:** many **L** (leucine). This is the end of the hydrophobic **h-region**.
+- **Positions +1 and +2:** almost no pattern. After the cut, the mature protein can start with almost anything.
+
+**Why it matters:** this is exactly the pattern the **von Heijne method** learns. It builds a table (the weight matrix) of which amino acids are typical at each of these 15 positions, then uses it to find cleavage sites in new proteins.
+
+---
+
+## Summary
+
+| Question | Answer |
+|---|---|
+| Are training and benchmark similar? | **Yes.** All plots look alike, so the benchmark is a fair final test. |
+| How long are SPs? | About **22 amino acids** (most 15–30). |
+| What are SPs made of? | Mostly **hydrophobic** residues (L, A, V), very few **charged** ones. |
+| What does the cleavage site look like? | **A-x-A** motif at positions −3 and −1. |
+| Any biases? | Most proteins come from **five model organisms**, and SP proteins are mostly from **animals**. |
+
+**Next step:** use these findings to build the predictors in [`04. Model training`](../04.%20Model%20training): first the von Heijne weight matrix, then the SVM.
+
+---
+
+## How to run
+
+```bash
+pip install pandas numpy matplotlib seaborn
+python "03. Data Analysis/data_analysis.py"
+```
+
+The plots are saved in `03. Data Analysis/plots/`.
