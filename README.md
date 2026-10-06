@@ -1,7 +1,7 @@
 # Group6_LOB2
 > ⚠️ **Disclaimer**
 >
-> This repository contains student work. It was written by students,
+> This repository contains students work. It was written by students (and with little bit of ai 😅 ),
 > not by a team of professional researchers locked in a basement with
 > unlimited compute.
 >
