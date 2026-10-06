@@ -29,4 +29,17 @@ The two datasets come from `02. Data Preparation`. Each one is described
 > **c-region** that contains the cleavage site.
 
 ## 1. Protein length
-![Protein Length Comparison](03.%20Data%20Analysis/plots/protein_length_comparison.png)
+
+![Protein length](plots/protein_length_comparison.png)
+
+**What the plot shows:** how long the proteins are, comparing proteins with an SP (blue) and without an SP (green). Each colour is scaled to its own group, so the two shapes can be compared even though there are many more negatives. Very long proteins (over 3,000 amino acids) are left out to keep the plot readable.
+
+**What we see:**
+
+- Proteins **with** an SP tend to be **shorter**: most are under 500 amino acids, with a peak around 100–250.
+- Proteins **without** an SP are spread over longer lengths, with a peak around 300–500.
+- The training and benchmark plots look alike.
+
+**Why it matters:** total length is different between the two groups, but our methods only look at the **start of the protein** (the first 90 amino acids), so this difference does not affect them.
+
+---
