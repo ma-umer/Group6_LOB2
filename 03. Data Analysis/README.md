@@ -1,4 +1,4 @@
-# 03. Data Analysis
+# Data Analysis
 Before training any prediction method, we first look at our data. This step answers simple questions: How long are our proteins? How long are the signal peptides? Which amino acids do they contain? Which organisms do they come from? And what does the cleavage site look like?
 
 Looking at the data first helps us:
@@ -27,3 +27,6 @@ The two datasets come from `02. Data Preparation`. Each one is described
 > the *cleavage site*. It has three parts: a positively charged
 > **n-region**, a hydrophobic (water-avoiding) **h-region**, and a
 > **c-region** that contains the cleavage site.
+
+## 1. Protein length
+![My Image](protein_length_comparison.png)
