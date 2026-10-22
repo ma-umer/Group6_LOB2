@@ -1,0 +1,2 @@
+Comparison	Correct only by first	Correct only by second	McNemar exact p	MCC difference (SVM - vH) 95% CI low	MCC difference (SVM - vH) 95% CI high	Bootstrap fraction diff <= 0
+von Heijne vs SVM	35	126	2.910343305805322e-13	0.13765442717464121	0.2457624519904445	0.0

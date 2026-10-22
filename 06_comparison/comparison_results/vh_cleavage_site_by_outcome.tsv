@@ -1,0 +1,4 @@
+Group	n	Ala at -1 (%)	small residue at -1 (A,G,S,C,T) (%)	small residue at -3 (A,V,S,G,C,T) (%)	A-x-A (Ala at -3 and -1) (%)	Leu in -13..-6 (%)	median PSWM score of the true cleavage window	best-scoring window = true cleavage window (%)
+Training positives (expected)	880	50.56818181818182	88.4090909090909	87.04545454545455	16.704545454545457	35.49715909090909		
+von Heijne benchmark TP	173	56.64739884393064	89.59537572254335	93.0635838150289	19.653179190751445	40.24566473988439	12.381729247422708	72.25433526011561
+von Heijne benchmark FN	48	37.5	83.33333333333334	87.5	6.25	20.572916666666664	6.333539491583858	50.0
