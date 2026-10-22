@@ -68,7 +68,7 @@ Python (pandas, NumPy, matplotlib, seaborn, scikit-learn), UniProt, MMseqs2, Goo
 
 | Name | GitHub |
 |---|---|
-| *Ahmed Abdelhafize* | [@username]([https://github.com/username](https://github.com/AhmedMohamedEisa)) |
+| *Ahmed Abdelhafize* | [@username](https://github.com/username](https://github.com/AhmedMohamedEisa)) |
 | *Berkay Oktay Demir* | [@username](https://github.com/username) |
 | *Mohammad Amin Roshan* | [@username](https://github.com/username) |
 | *Mohibuddin Ahmed Umer* | [@username](https://github.com/username) |
