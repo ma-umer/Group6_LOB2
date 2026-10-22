@@ -1,0 +1,130 @@
+Training rows: 8145 | benchmark rows: 2038
+39 features per sequence; composition over the first n = 22 residues (median SP length of the whole training set; recomputed in every fit)
+////////////////////////////////////////////////////////////
+Run 1: test subset = 1, inner CV on subsets [2, 3, 4, 5]
+  inner n (median SP length) = [22, 22, 22, 22], combinations tried: 96
+  best mean validation MCC 0.867 at k=39, C=4, gamma=0.5/k; one-SE rule (SE 0.015, cut-off 0.852) would keep k=20
+  All features                  : k=39, C=4, gamma=0.5/k, n=22, inner MCC 0.867, test MCC 0.874
+  Selected features             : k=39, C=4, gamma=0.5/k, n=22, inner MCC 0.867, test MCC 0.874
+  Selected features, one-SE rule: k=20, C=1, gamma=2/k, n=22, inner MCC 0.854, test MCC 0.850
+////////////////////////////////////////////////////////////
+Run 2: test subset = 2, inner CV on subsets [1, 3, 4, 5]
+  inner n (median SP length) = [22, 22, 22, 22], combinations tried: 120
+  best mean validation MCC 0.885 at k=39, C=4, gamma=0.25/k; one-SE rule (SE 0.008, cut-off 0.877) would keep k=30
+  All features                  : k=39, C=4, gamma=0.25/k, n=22, inner MCC 0.885, test MCC 0.809
+  Selected features             : k=39, C=4, gamma=0.25/k, n=22, inner MCC 0.885, test MCC 0.809
+  Selected features, one-SE rule: k=30, C=1, gamma=1/k, n=22, inner MCC 0.878, test MCC 0.801
+////////////////////////////////////////////////////////////
+Run 3: test subset = 3, inner CV on subsets [1, 2, 4, 5]
+  inner n (median SP length) = [22, 22, 22, 22], combinations tried: 72
+  best mean validation MCC 0.863 at k=35, C=4, gamma=1/k; one-SE rule (SE 0.016, cut-off 0.848) would keep k=25
+  All features                  : k=39, C=4, gamma=1/k, n=22, inner MCC 0.861, test MCC 0.885
+  Selected features             : k=35, C=4, gamma=1/k, n=22, inner MCC 0.863, test MCC 0.887
+  Selected features, one-SE rule: k=25, C=1, gamma=2/k, n=22, inner MCC 0.850, test MCC 0.877
+////////////////////////////////////////////////////////////
+Run 4: test subset = 4, inner CV on subsets [1, 2, 3, 5]
+  inner n (median SP length) = [22, 22, 22, 22], combinations tried: 72
+  best mean validation MCC 0.869 at k=35, C=4, gamma=1/k; one-SE rule (SE 0.021, cut-off 0.848) would keep k=15
+  All features                  : k=39, C=1, gamma=1/k, n=22, inner MCC 0.864, test MCC 0.894
+  Selected features             : k=35, C=4, gamma=1/k, n=22, inner MCC 0.869, test MCC 0.892
+  Selected features, one-SE rule: k=15, C=4, gamma=1/k, n=22, inner MCC 0.848, test MCC 0.878
+////////////////////////////////////////////////////////////
+Run 5: test subset = 5, inner CV on subsets [1, 2, 3, 4]
+  inner n (median SP length) = [22, 22, 22, 22], combinations tried: 96
+  best mean validation MCC 0.873 at k=35, C=4, gamma=0.5/k; one-SE rule (SE 0.019, cut-off 0.854) would keep k=25
+  All features                  : k=39, C=4, gamma=0.5/k, n=22, inner MCC 0.867, test MCC 0.871
+  Selected features             : k=35, C=4, gamma=0.5/k, n=22, inner MCC 0.873, test MCC 0.868
+  Selected features, one-SE rule: k=25, C=1, gamma=0.5/k, n=22, inner MCC 0.857, test MCC 0.855
+////////////////////////////////////////////////////////////
+
+Nested CV, outer test folds:
+                         Model  Run  Test fold  n (composition)  N features  k at MCC peak  C  gamma  gamma x k  Inner val MCC   MCC  Precision  Recall  Accuracy  F1-score  Specificity
+             Selected features    1          1               22          39             39  4  0.013       0.50          0.867 0.874      0.878   0.898     0.975     0.888        0.985
+             Selected features    2          2               22          39             39  4  0.006       0.25          0.885 0.809      0.864   0.795     0.964     0.828        0.985
+             Selected features    3          3               22          35             35  4  0.029       1.00          0.863 0.887      0.889   0.909     0.978     0.899        0.986
+             Selected features    4          4               22          35             35  4  0.029       1.00          0.869 0.892      0.903   0.903     0.979     0.903        0.988
+             Selected features    5          5               22          35             35  4  0.014       0.50          0.873 0.868      0.895   0.869     0.975     0.882        0.988
+Selected features, one-SE rule    1          1               22          20             39  1  0.100       2.00          0.854 0.850      0.869   0.864     0.971     0.866        0.984
+Selected features, one-SE rule    2          2               22          30             39  1  0.033       1.00          0.878 0.801      0.867   0.778     0.963     0.820        0.986
+Selected features, one-SE rule    3          3               22          25             35  1  0.080       2.00          0.850 0.877      0.911   0.869     0.977     0.890        0.990
+Selected features, one-SE rule    4          4               22          15             35  4  0.067       1.00          0.848 0.878      0.901   0.881     0.977     0.891        0.988
+Selected features, one-SE rule    5          5               22          25             35  1  0.020       0.50          0.857 0.855      0.883   0.858     0.972     0.870        0.986
+                  All features    1          1               22          39             39  4  0.013       0.50          0.867 0.874      0.878   0.898     0.975     0.888        0.985
+                  All features    2          2               22          39             39  4  0.006       0.25          0.885 0.809      0.864   0.795     0.964     0.828        0.985
+                  All features    3          3               22          39             35  4  0.026       1.00          0.861 0.885      0.898   0.898     0.978     0.898        0.988
+                  All features    4          4               22          39             35  1  0.026       1.00          0.864 0.894      0.913   0.898     0.980     0.905        0.990
+                  All features    5          5               22          39             35  4  0.013       0.50          0.867 0.871      0.895   0.875     0.975     0.885        0.988
+
+Summary (mean, std, SE over the 5 outer folds):
+                         Model      Metric  Mean   Std    SE
+             Selected features         MCC 0.866 0.033 0.015
+             Selected features   Precision 0.886 0.015 0.007
+             Selected features      Recall 0.875 0.047 0.021
+             Selected features    Accuracy 0.974 0.006 0.003
+             Selected features    F1-score 0.880 0.030 0.013
+             Selected features Specificity 0.986 0.002 0.001
+Selected features, one-SE rule         MCC 0.852 0.031 0.014
+Selected features, one-SE rule   Precision 0.886 0.019 0.009
+Selected features, one-SE rule      Recall 0.850 0.041 0.018
+Selected features, one-SE rule    Accuracy 0.972 0.006 0.002
+Selected features, one-SE rule    F1-score 0.867 0.029 0.013
+Selected features, one-SE rule Specificity 0.987 0.002 0.001
+                  All features         MCC 0.867 0.033 0.015
+                  All features   Precision 0.890 0.019 0.009
+                  All features      Recall 0.873 0.044 0.020
+                  All features    Accuracy 0.975 0.006 0.003
+                  All features    F1-score 0.881 0.030 0.014
+                  All features Specificity 0.987 0.002 0.001
+
+////////////////////////////////////////////////////////////
+Final model: 5-fold CV on the whole training set
+  best mean CV MCC 0.875 at k=39; one-SE rule (SE 0.016, cut-off 0.859) would keep k=25
+  selected: k=39, C=1, gamma=1/k, n=22, CV MCC 0.875
+  all     : k=39, C=1, gamma=1/k, n=22, CV MCC 0.875
+  one_se  : k=25, C=1, gamma=2/k, n=22, CV MCC 0.862
+
+Selection frequency over the outer runs (top 20 by mean Gini importance):
+                  feature  times_selected  of_runs  in_final_model  mean_importance  sd_importance  mean_rank  min_rank  max_rank
+       max_hydrophobicity               5        5            True            0.206          0.002        1.0         1         1
+      max_aliphatic_index               5        5            True            0.107          0.005        2.0         2         2
+      mean_hydrophobicity               5        5            True            0.088          0.002        3.0         3         3
+              tm_position               5        5            True            0.075          0.003        4.0         4         4
+          composition_(L)               5        5            True            0.057          0.002        5.2         5         6
+                   tm_max               5        5            True            0.053          0.002        5.8         5         6
+most_hydrophobic_position               5        5            True            0.044          0.003        7.0         7         7
+                  tm_mean               5        5            True            0.037          0.001        8.0         8         8
+  most_aliphatic_position               5        5            True            0.035          0.001        9.0         9         9
+     mean_aliphatic_index               5        5            True            0.029          0.002       10.4        10        11
+          mean_beta_sheet               5        5            True            0.028          0.002       11.2        10        12
+      beta_sheet_position               5        5            True            0.027          0.001       11.4        10        12
+      max_charge_position               5        5            True            0.024          0.001       13.2        13        14
+           max_beta_sheet               5        5            True            0.022          0.001       13.8        13        14
+          composition_(A)               5        5            True            0.014          0.001       15.2        15        16
+          max_alpha_helix               5        5            True            0.013          0.000       15.8        15        16
+         mean_alpha_helix               5        5            True            0.012          0.000       17.2        17        18
+               min_charge               5        5            True            0.011          0.001       18.0        17        19
+     alpha_helix_position               5        5            True            0.011          0.000       19.0        18        20
+          composition_(R)               5        5            True            0.009          0.001       19.8        19        20
+
+////////////////////////////////////////////////////////////
+Benchmark
+
+Selected features (39): n=22, C=1, gamma=0.0256
+  TP=191 FP=22 FN=30 TN=1795
+  MCC=0.866, Precision=0.897, Recall=0.864, Accuracy=0.974, F1-score=0.880, Specificity=0.988
+  FPR (Transmembrane) = 7.45%  (14/188)
+  FPR (Non-transmembrane) = 0.49%  (8/1629)
+
+All features: n=22, C=1, gamma=0.0256
+  TP=191 FP=22 FN=30 TN=1795
+  MCC=0.866, Precision=0.897, Recall=0.864, Accuracy=0.974, F1-score=0.880, Specificity=0.988
+  FPR (Transmembrane) = 7.45%  (14/188)
+  FPR (Non-transmembrane) = 0.49%  (8/1629)
+
+Selected features, one-SE rule (25): n=22, C=1, gamma=0.0800
+  TP=183 FP=26 FN=38 TN=1791
+  MCC=0.834, Precision=0.876, Recall=0.828, Accuracy=0.969, F1-score=0.851, Specificity=0.986
+  FPR (Transmembrane) = 6.91%  (13/188)
+  FPR (Non-transmembrane) = 0.80%  (13/1629)
+
+Results written to /home/claude/work/lb2_group_6_project/05_svm/model_results
