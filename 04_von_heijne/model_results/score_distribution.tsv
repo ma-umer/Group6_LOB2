@@ -1,0 +1,6 @@
+Set	Group	n	Median score
+CV pooled	Positives	880	11.377897272191978
+CV pooled	Negatives	7265	1.3923816374664688
+Benchmark	Positives	221	12.100527436299073
+Benchmark	Negatives, no N-term TM	1629	0.8578956302222268
+Benchmark	Negatives with N-term TM	188	6.3456125435172215

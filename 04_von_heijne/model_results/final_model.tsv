@@ -1,0 +1,13 @@
+Parameter	Value
+training folds	1,2,3,4,5
+motifs	880
+threshold	8.634029713833295
+threshold source	best F1 on validation fold 5, PSWM built on folds 1,2,3,4 (course slides, final models)
+threshold PSWM folds	1,2,3,4
+validation fold	5
+validation precision	0.6903553299492385
+validation recall	0.7727272727272727
+validation F1	0.7292225201072385
+validation MCC	0.6957456033116254
+mean CV-run threshold (reference only)	9.228752916128538
+pooled out-of-fold best-F1 threshold (reference only)	8.709420920730714
