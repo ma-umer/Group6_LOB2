@@ -79,8 +79,6 @@ Python (pandas, NumPy, matplotlib, seaborn, scikit-learn), UniProt, MMseqs2, Goo
 
 ---
 
-*No proteins were harmed in the making of this project. Several signal peptides were, however, cleaved.* ✂️
-
 # Signal peptide prediction in eukaryotic proteins
 
 **Laboratory of Bioinformatics 2 – Group 6**
@@ -248,4 +246,7 @@ The figures in 04–06 share one colour scheme, defined at the top of `04_von_he
 - PSWMs use a blue–grey–red scale centred on 0.
 - Confusion matrices use the slide layout (rows = observed class) and a single blue scale.
 - Models and rounds have fixed colours that are safe for colour-blind readers.
+
+
+*No proteins were harmed in the making of this project. Several signal peptides were, however, cleaved.* ✂️
 
